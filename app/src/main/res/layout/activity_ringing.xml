@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/ringingTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="アラーム"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ringingSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="再生中..."
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="停止"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/btnSnooze"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="スヌーズ（10分）" />
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shuffle Wake"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="状態: 未設定"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnChooseFolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="音楽フォルダを選ぶ" 
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btnRescan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="スキャン" />
+
+        <Button
+            android:id="@+id/btnAddTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="アラーム時刻を追加" />
+
+        <LinearLayout
+            android:id="@+id/timesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="全ての時刻をスケジュール" 
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btnTestPlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="テスト再生" />
+
+        <TextView
+            android:id="@+id/debug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>

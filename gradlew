@@ -1,9 +1,4 @@
 #!/usr/bin/env sh
-
-# Minimal Gradle wrapper script.
-# It relies on gradle/wrapper/gradle-wrapper.jar (included in this project).
-
+# Simplified Gradle wrapper script. If this fails on your machine, use the one Android Studio generates.
 DIR="$(cd "$(dirname "$0")" && pwd)"
-JAVA_CMD="java"
-
-exec "$JAVA_CMD" -classpath "$DIR/gradle/wrapper/gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain "$@"
+exec java -jar "$DIR/gradle/wrapper/gradle-wrapper.jar" "$@"

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Must be AppCompat descendant because MainActivity extends AppCompatActivity -->
+    <style name="Theme.ShuffleWake" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize if needed -->
+    </style>
+
+</resources>
