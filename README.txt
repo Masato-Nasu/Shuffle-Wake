@@ -1,38 +1,23 @@
-WakeMusic Reliable Sound + Preset Volume Patch
+WakeMusic UI Patch (Stop / Volume During Playback / Visible Time)
 
-What it fixes:
-- Music playback becomes intermittent (especially on Android 8+ / 12+).
-- Preset volume seems not applied (because later patches overwrote AlarmPlayerService).
+目的:
+- 再生を止められるようにする（MainActivity / AlarmActivity に停止ボタン）
+- 再生中に音量を変えられるようにする（STREAM_ALARM を直接変更するスライダー + 音量キー対応）
+- 白背景でステータスバー時計が見えない問題を解消（ステータスバーアイコンを黒に + 画面内に現在時刻表示）
 
-This patch merges:
-1) startForeground() immediately (sound-stable)
-2) playlist scan in background thread
-3) preset ALARM volume applied BEFORE playback (0..100% in AlarmStore)
-4) robust fallback ringtone URIs (if folder empty / URI fails)
-5) onPlayerError: skip to next or fallback
+適用:
+1) app/build.gradle(.kts) の namespace を確認して、合う方のパスを上書き:
+   - com.masatonasu.wakemusic
+   - com.example.wakemusic
 
-Apply (IMPORTANT):
-1) Check your namespace in app/build.gradle(.kts):
-   namespace = "com.masatonasu.wakemusic" OR "com.example.wakemusic"
+上書きファイル:
+- MainActivity.kt
+- AlarmActivity.kt
 
-2) Overwrite matching package files:
-   - AlarmStore.kt
-   - MainActivity.kt
-   - AlarmPlayerService.kt
+その後:
+- Build > Clean Project
+- Build > Rebuild Project
 
-3) Update AndroidManifest.xml (recommended):
-   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-   <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-
-   In <application> add/ensure:
-   <service
-       android:name=".AlarmPlayerService"
-       android:exported="false"
-       android:foregroundServiceType="mediaPlayback" />
-
-4) Build > Clean Project, Build > Rebuild Project.
-
-How to verify:
-- Open app -> set "起床音量（事前設定）" to e.g. 30%
-- Press "テスト再生（今すぐ鳴らす）"
-- Logcat filter: WakeMusic -> see "Preset volume..." and "Playlist size=..."
+補足:
+- AlarmActivity が端末によって自動表示されない場合は、AlarmPlayerService.startAlarm() の
+  startForeground() 直後に、best-effort で startActivity(AlarmActivity) を追加すると改善することがあります。
